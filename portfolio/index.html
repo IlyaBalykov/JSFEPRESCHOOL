@@ -2,22 +2,43 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial=scale=1.0" >
+  <link rel="stylesheet" href="./styles/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
   <title>Portfolio</title>
 </head>
 <body>
-  <header class="header">
+  <div class="wrapper">
+    <header class="header">
+      <img class="logo" src="images/logo.svg" alt="">
+      <nav class="header__navigation">
+        <ul class="navigation">
+          <li class="navigation__item"><a href="#skills"></a>Skills</li>
+          <li class="navigation__item"><a href="#portfolio"></a>Portfolio</li>
+          <li class="navigation__item"><a href="#video"></a>Video</li>
+          <li class="navigation__item"><a href="#price"></a>Price</li>
+          <li class="navigation__item"><a href="#contacts"></a>Contacts</li>
+        </ul>
+      </nav>
+      <div class="switch-lang">
+        <a class="switch-lang__text switch-lang__text_active" href="#">en</a>
+        <span class="switch-lang__text">&nbsp/&nbsp</span>
+        <a class="switch-lang__text" href="#">ru</a>
+      </div>
+    </header>
+    <main class="main">
+      <section class="hero"></section>
+      <section class="skills"></section>
+      <section class="portfolio"></section>
+      <section class="video"></section>
+      <section class="price"></section>
+      <section class="contacts"></section>
+    </main>
+    <footer class="footer">
 
-  </header>
-  <main class="main">
-    <section class="hero"></section>
-    <section class="skills"></section>
-    <section class="portfolio"></section>
-    <section class="video"></section>
-    <section class="price"></section>
-    <section class="contacts"></section>
-  </main>
-  <footer class="footer">
-
-  </footer>
+    </footer>
+  </div>
 </body>
 </html>
