@@ -43,6 +43,7 @@ body {
     font-weight: normal;
     font-size: 20px;
     line-height: 50px;
+    cursor: pointer;
 }
 .switch-lang {
     display: flex;
@@ -93,15 +94,17 @@ body {
 .button {
     width: 220px;
     height: 55px;
-    margin-top: 25px;
-    background-color: #BDAE82;
-    border: none;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
     line-height: 40px;
     text-align: center;
+}
+.button_colored {
+    margin-top: 25px;
+    background-color: #BDAE82;
+    border: none;
 }
 .button_colored:hover {
     cursor: pointer;
@@ -174,4 +177,36 @@ body {
     line-height: 36px;
     text-align: center;
     color: #fff;
+}
+
+/*portfolio*/
+.portfolio-button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 60px;
+    padding: 0 272px;
+}
+.button_bordered {
+    border: 2px solid #BDAE82;
+    background-color: #000;
+    color: #BDAE82;
+}
+.button_bordered:hover {
+    background-color: #BDAE82;
+    color: black;
+    cursor: pointer;
+}
+.portfolio-container {
+    height: 1145px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: space-between;
+    margin-top: 60px;
+    padding: 0 20px;
+}
+.portfolio-container-image {
+    width: 450px;
+    height: 560px;
 }
