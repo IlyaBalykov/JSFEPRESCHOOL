@@ -210,3 +210,30 @@ body {
     width: 450px;
     height: 560px;
 }
+
+/*video*/
+
+.video {
+    height: 945px;
+}
+.video-payer-container {
+    flex-direction: column;
+    text-align: center;
+    margin: 60px 0 0;
+    padding: 0;
+}
+.button_play {
+    position: relative;
+    top: -420px;
+    height: 134px;
+    width: 134px;
+    padding: 0;
+    border: none;
+    border-radius: 50%;
+    background: url("../images/icons/play-btn.svg") center;
+    cursor: pointer;
+}
+/*price*/
+.price {
+    height: 845px;
+}
