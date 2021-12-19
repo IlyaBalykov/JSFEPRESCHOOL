@@ -35,7 +35,7 @@
         <h1 class="hero__title">Alexa Rise</h1>
         <p class="hero__about">Save sincere emotions, romantic feelings and happy
           moments of life together with professional photographer Alexa Rise</p>
-        <button class="button button_colored button_hero">Hire me</button>
+        <button class="button button_colored button-hero">Hire me</button>
       </section>
       <!-- /.hero -->
       <section id="skills" class="skills">
@@ -101,9 +101,9 @@
           <h2 class="title-container__text">Video</h2>
           <hr class="title-container__line"/>
         </div>
-        <div class="video-payer-container">
+        <div class="video-player-container">
           <img src="./images/content/video-preview.jpg" alt="Preview" class="video-payer-container_preview">
-          <button class="button_play"></button>
+          <button class="button-play"></button>
         </div>
       </section>
       <!-- /.video -->
@@ -114,42 +114,52 @@
         </div>
         <div class="price-container">
           <div class="price-container-card">
-            <h3 class="price-container-card_title">Standart</h3>
-            <span class="price-container-card_value">500 $</span>
-            <span class="price-container-card_description">One location</span>
-            <span class="price-container-card_description">120 photos in color</span>
-            <span class="price-container-card_description">12 photos in retouch</span>
-            <span class="price-container-card_description">Readiness 2-3 weeks</span>
-            <span class="price-container-card_description">Make up, visage</span>
+            <h3 class="price-container-card__title">Standart</h3>
+            <span class="price-container-card__value">500 $</span>
+            <span class="price-container-card__description">One location</span>
+            <span class="price-container-card__description">120 photos in color</span>
+            <span class="price-container-card__description">12 photos in retouch</span>
+            <span class="price-container-card__description">Readiness 2-3 weeks</span>
+            <span class="price-container-card__description">Make up, visage</span>
             <button class="button button_colored button-price">Order shooting</button>
           </div>
           <div class="price-container-card">
-            <h3 class="price-container-card_title">Premium</h3>
-            <span class="price-container-card_value">700 $</span>
-            <span class="price-container-card_description">One or two locations</span>
-            <span class="price-container-card_description">200 photos in color</span>
-            <span class="price-container-card_description">20 photos in retouch</span>
-            <span class="price-container-card_description">Readiness 1-2 weeks</span>
-            <span class="price-container-card_description">Make up, visage</span>
+            <h3 class="price-container-card__title">Premium</h3>
+            <span class="price-container-card__value">700 $</span>
+            <span class="price-container-card__description">One or two locations</span>
+            <span class="price-container-card__description">200 photos in color</span>
+            <span class="price-container-card__description">20 photos in retouch</span>
+            <span class="price-container-card__description">Readiness 1-2 weeks</span>
+            <span class="price-container-card__description">Make up, visage</span>
             <button class="button button_colored button-price">Order shooting</button>
           </div>
           <div class="price-container-card">
-            <h3 class="price-container-card_title">Gold</h3>
-            <span class="price-container-card_value">1000 $</span>
-            <span class="price-container-card_description">Tree locations or more</span>
-            <span class="price-container-card_description">300 photos in color</span>
-            <span class="price-container-card_description">50 photos in retouch</span>
-            <span class="price-container-card_description">Readiness 1 weeks</span>
-            <span class="price-container-card_description">Make up, visage, hairstyle</span>
+            <h3 class="price-container-card__title">Gold</h3>
+            <span class="price-container-card__value">1000 $</span>
+            <span class="price-container-card__description">Tree locations or more</span>
+            <span class="price-container-card__description">300 photos in color</span>
+            <span class="price-container-card__description">50 photos in retouch</span>
+            <span class="price-container-card__description">Readiness 1 weeks</span>
+            <span class="price-container-card__description">Make up, visage, hairstyle</span>
             <button class="button button_colored button-price">Order shooting</button>
           </div>
         </div>
       </section>
       <!-- /.price -->
-      <section class="contacts"></section>
+      <section id="contact" class="contact">
+        <div class="contact-container">
+          <h2 class="contact-container__title">Contact me</h2>
+          <form class="contact-form" action="#">
+            <input class="contact-form__text" type="email" placeholder="E-mail">
+            <input class="contact-form__text"type="tel" placeholder="Phone">
+            <textarea class="contact-form__text"placeholder="Message" rows="2"></textarea>
+            <button class="button button_colored button-contact">Send message</button>
+          </form>
+        </div>
+        <!-- /.contact -->
+      </section>
     </main>
     <footer class="footer">
-
     </footer>
   </div>
 </body>
