@@ -335,3 +335,39 @@ body {
 .button-contact {
     margin-top: 10px;
 }
+
+/*footer*/
+.footer {
+    height: 150px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+.footer>.footer__data:nth-child(1) {
+    word-spacing: 20px;
+}
+.footer__data {
+    font-family: 'Inter', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 20px;
+    line-height: 50px;
+    color: #fff;
+}
+.footer__data a {
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+}
+.footer-menu {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+}
+.footer-menu>li:nth-child(-n+3) {
+    margin-right: 20px;
+}
