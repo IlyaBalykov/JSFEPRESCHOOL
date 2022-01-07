@@ -57,11 +57,11 @@ body {
 .button-play {
     position: relative;
     top: -420px;
-    height: 134px;
-    width: 134px;
+    height: 130px;
+    width: 130px;
     padding: 0;
     border: none;
     border-radius: 50%;
-    background: url("../assets/icons/play-btn.svg") center;
+    background: url("../assets/svg/play-btn.svg") center;
     cursor: pointer;
 }
