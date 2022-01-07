@@ -12,20 +12,28 @@ body {
     background-color: #000;
 }
 
-.wrapper {
-    width: 1440px;
+.container {
+    max-width: 1440px;
+    padding: 0 20px;
     margin: 0 auto;
-    background: url("../images/content/bg-hero.jpg") no-repeat;
 }
 /*header*/
-.header {
+.header-container {
     display: flex;
     flex-direction: row;
-    padding: 20px;
+    align-items: center;
+    background: url("../assets/img/bg-hero.jpg") no-repeat center 0;
+}
+.logo {
+    transition: .3s;
+}
+.logo:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
 }
 .header__navigation {
     width: 500px;
-    margin-left: 780px;
+    margin-left: auto;
     color: #fff;
 }
 .navigation {
@@ -42,7 +50,7 @@ body {
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
-    line-height: 50px;
+    line-height: 90px;
     cursor: pointer;
 }
 .switch-lang {
@@ -232,7 +240,7 @@ body {
     padding: 0;
     border: none;
     border-radius: 50%;
-    background: url("../images/icons/play-btn.svg") center;
+    background: url("../assets/icons/play-btn.svg") center;
     cursor: pointer;
 }
 /*price*/
@@ -289,7 +297,7 @@ body {
 /*contact*/
 .contact {
     height: 700px;
-    background: url("../images/content/bg-contacts.jpg");
+    background: url("../assets/img/bg-contacts.jpg");
     padding-right: 20px;
 }
 .contact-container {
