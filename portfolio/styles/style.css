@@ -261,7 +261,7 @@ body {
     padding: 0;
     border: none;
     border-radius: 50%;
-    background: url("../assets/icons/play-btn.svg") center;
+    background: url("../assets/svg/play-btn.svg") center;
     cursor: pointer;
 }
 /*price*/
