@@ -38,7 +38,6 @@ body {
 .header__navigation {
     width: 500px;
     margin-left: auto;
-    color: #fff;
 }
 .navigation {
     display: flex;
@@ -46,15 +45,16 @@ body {
     justify-content: space-between;
     padding: 0 30px;
     margin: 0;
-    text-decoration: none;
     list-style: none;
 }
-.navigation__item {
+.navigation-link {
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
     font-size: 20px;
     line-height: 90px;
+    text-decoration: none;
+    color: #fff;
     cursor: pointer;
 }
 .switch-lang {
@@ -124,6 +124,7 @@ body {
     line-height: 40px;
     text-align: center;
 }
+
 .button_colored {
     background-color: #BDAE82;
     border: none;
@@ -212,6 +213,10 @@ body {
     margin-top: 60px;
     padding: 0 272px;
 }
+.portfolio-button-container>.button_bordered:nth-child(4) {
+    background-color: #BDAE82;
+    color: black;
+}
 .button_bordered {
     border: 2px solid #BDAE82;
     background-color: #000;
@@ -222,6 +227,7 @@ body {
     color: black;
     cursor: pointer;
 }
+
 .portfolio-container {
     height: 1145px;
     display: flex;
@@ -378,6 +384,7 @@ body {
 }
 .button-contact {
     margin-top: 10px;
+    cursor: pointer;
 }
 
 /*footer*/
