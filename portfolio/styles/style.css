@@ -322,7 +322,8 @@ body {
 /*contact*/
 .contact {
     height: 700px;
-    background: url("../assets/img/bg-contacts.jpg");
+    background: url("../assets/img/bg-contacts.jpg") center center;
+    background-size:  auto 700px;
     padding-right: 20px;
 }
 .contact-container {
@@ -401,6 +402,7 @@ body {
     padding: 0 20px;
 }
 .footer__data {
+    margin-right: 10px;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
