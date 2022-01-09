@@ -55,6 +55,11 @@ body {
     line-height: 90px;
     text-decoration: none;
     color: #fff;
+    transition: .4s;
+}
+.navigation-link:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
     cursor: pointer;
 }
 .switch-lang {
@@ -132,6 +137,7 @@ body {
 .button_colored {
     background-color: #BDAE82;
     border: none;
+    transition: .4s;
 }
 .button-hero {
     margin-top: 25px;
@@ -225,6 +231,7 @@ body {
     border: 2px solid #BDAE82;
     background-color: #000;
     color: #BDAE82;
+    transition: .4s;
 }
 .button_bordered:hover {
     background-color: #BDAE82;
@@ -266,6 +273,11 @@ body {
     border: none;
     border-radius: 50%;
     background: url("../assets/svg/play-btn.svg") center;
+    transition: .3s;
+}
+.button-play:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
     cursor: pointer;
 }
 /*price*/
@@ -288,7 +300,7 @@ body {
     border: 2px solid #BDAE82;
 }
 .price-container-card__title {
-    margin-top: 43px;
+    margin-top: 40px;
     margin-bottom: 0;
     font-family: 'Merriweather', serif;
     font-style: normal;
@@ -402,7 +414,7 @@ body {
     padding: 0 20px;
 }
 .footer__data {
-    margin-right: 10px;
+    margin-right: 20px;
     font-family: 'Inter', sans-serif;
     font-style: normal;
     font-weight: normal;
@@ -415,6 +427,12 @@ body {
 }
 .footer-link-git {
     margin-left: 15px;
+    transition: .4s;
+}
+.footer-link-git:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+    cursor: pointer;
 }
 .footer-link-rs {
     font-family: 'Inter', sans-serif;
@@ -423,6 +441,12 @@ body {
     font-size: 20px;
     line-height: 50px;
     color: #fff;
+    transition: .4s;
+}
+.footer-link-rs:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+    cursor: pointer;
 }
 .footer-link-git,
 .footer-link-rs {
@@ -444,4 +468,10 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
+    transition: .3s;
+}
+.footer-menu__item:hover {
+    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+    cursor: pointer;
 }
