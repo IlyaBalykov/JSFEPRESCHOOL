@@ -34,6 +34,7 @@ body {
 .logo:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
+    cursor: pointer;
 }
 .header__navigation {
     width: 500px;
@@ -227,6 +228,9 @@ body {
     background-color: #BDAE82;
     color: black;
 }
+.portfolio-button-container>.button_bordered:nth-child(4):hover {
+    color: #fff;
+}
 .button_bordered {
     border: 2px solid #BDAE82;
     background-color: #000;
@@ -234,8 +238,7 @@ body {
     transition: .4s;
 }
 .button_bordered:hover {
-    background-color: #BDAE82;
-    color: black;
+    color: #fff;
     cursor: pointer;
 }
 
