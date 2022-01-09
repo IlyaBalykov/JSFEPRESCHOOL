@@ -62,7 +62,8 @@ body {
     align-items: center;
     margin-right: 20px;
 }
-.switch-lang__text {
+.switch-lang__text,
+.switch-lang__slash {
     color: #fff;
     text-decoration: none;
     font-family: 'Inter', sans-serif;
@@ -73,6 +74,9 @@ body {
 }
 .switch-lang__text_active {
     color: #BDAE82;
+}
+.switch-lang__slash {
+    margin: 0 10px;
 }
 
 .main-container {
