@@ -142,10 +142,15 @@ body {
     cursor: pointer;
     color: #fff;
 }
-
+.skills,
+.portfolio,
+.video,
+.price {
+    padding-top: 100px;
+}
 /*skills*/
 .skills {
-    padding: 0 20px 10px;
+    padding: 100px 20px 10px;
 }
 .title-container {
     text-align: center;
@@ -155,8 +160,7 @@ body {
     position: relative;
     z-index: 1;
     background-color: black;
-    margin-top: 100px;
-    margin-bottom: 0;
+    margin: 0;
     padding: 0 20px;
     font-family: 'Merriweather', serif;
     font-style: normal;
@@ -183,7 +187,7 @@ body {
     margin-top: 60px;
 }
 .skills-container-item {
-    width: 320px;
+    max-width: 320px;
     text-align: center;
     padding: 0 20px;
 }
@@ -252,10 +256,6 @@ body {
 }
 
 /*video*/
-
-.video {
-
-}
 .video-player-container {
     display: flex;
     flex-direction: column;
@@ -266,7 +266,8 @@ body {
 }
 .video-payer-container_preview {
     width: 100%;
-    object-fit: contain;
+    max-height: 705px;
+    object-fit: cover;
 }
 .button-play {
     position: absolute;
@@ -488,6 +489,17 @@ body {
 }
 
 @media screen and (max-width: 768px){
+    .skills,
+    .portfolio,
+    .video,
+    .price {
+        padding-top: 80px;
+    }
+    .title-container__text {
+        font-size: 32px;
+        line-height: 80px;
+    }
+
     /*header*/
     .header-container {
         justify-content: space-between;
@@ -508,12 +520,16 @@ body {
 
     /*skills*/
     .skills-container {
-        justify-content: space-around;
+        justify-content: center;
+        column-gap: 30px;
+        row-gap: 45px;
         flex-wrap: wrap;
+        margin-top: 50px;
+        padding-bottom: 40px;
     }
     .skills-container-item {
         flex-basis: 50%;
-        margin-bottom: 40px;
+        width: 320px;
     }
 
     /*portfolio*/
@@ -523,10 +539,17 @@ body {
         grid-gap: 5px;
         justify-content: center;
         padding: 0;
+        margin-top: 50px;
     }
 
     /*video*/
     .button-play__image {
         max-width: 75px;
+    }
+    .video-player-container {
+        margin-top: 50px;
+    }
+    .video-payer-container_preview {
+        max-height: none;
     }
 }
