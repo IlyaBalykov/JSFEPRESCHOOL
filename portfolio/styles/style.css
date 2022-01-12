@@ -422,8 +422,7 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    height: 150px;
-    padding: 0 20px;
+    padding: 50px 20px;
 }
 .footer__data {
     margin-right: 20px;
@@ -562,5 +561,10 @@ body {
     }
     .price-container-card {
         max-width: 420px;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        padding: 20px 0;
     }
 }
