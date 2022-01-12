@@ -294,13 +294,13 @@ body {
 }
 /*price*/
 .price {
-    height: 845px;
+    padding-bottom: 100px;
 }
 .price-container {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
-    margin-top: 60PX;
+    margin-top: 60px;
     padding: 0 20px;
 }
 .price-container-card {
@@ -551,5 +551,16 @@ body {
     }
     .video-payer-container_preview {
         max-height: none;
+    }
+
+    /*price*/
+    .price-container {
+        flex-direction: column;
+        align-items: center;
+        row-gap: 50px;
+        margin-top: 50px;
+    }
+    .price-container-card {
+        max-width: 420px;
     }
 }
