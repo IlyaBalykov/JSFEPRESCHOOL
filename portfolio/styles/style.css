@@ -92,16 +92,11 @@ body {
 }
 
 /*hero*/
-.header-container {
-
-}
 .hero {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-top: 160px;
-    padding-left: 80px;
-    height: 820px;
+    padding: 160px 0 330px 80px;
     background: url("../assets/img/bg-hero.jpg") no-repeat center -90px;
 }
 .hero__title {
@@ -493,6 +488,15 @@ body {
 }
 
 @media screen and (max-width: 768px){
+    /*hero*/
+    .hero {
+        padding: 60px 0 166px 20px;
+    }
+    .hero__title {
+        font-size: 32px;
+        line-height: 64px;
+    }
+
     /*skills*/
     .skills-container {
         justify-content: space-around;
