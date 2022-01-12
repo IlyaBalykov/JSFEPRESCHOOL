@@ -13,7 +13,7 @@ body {
 }
 
 .container {
-    width: 1440px;
+    max-width: 1440px;
     padding: 0 20px;
     margin: 0 auto;
 }
@@ -22,7 +22,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 1440px;
+    max-width: 1440px;
     padding: 0 0;
     margin: 0 auto;
     background: url("../assets/img/bg-hero.jpg") no-repeat center 0;
@@ -86,7 +86,7 @@ body {
 }
 
 .main-container {
-    width: 1440px;
+    max-width: 1440px;
     padding: 0;
     margin: 0 auto;
 }
@@ -150,8 +150,7 @@ body {
 
 /*skills*/
 .skills {
-    height: 482px;
-    padding: 0 20px;
+    padding: 0 20px 10px;
 }
 .title-container {
     text-align: center;
@@ -178,7 +177,7 @@ body {
     z-index: 0;
     top:-42px;
     height: 2px;
-    width: 700px;
+    width: 50%;
     background-color: #BDAE82;
     border: none;
 }
@@ -220,9 +219,10 @@ body {
 .portfolio-button-container {
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    column-gap: 5px;
+    justify-content: center;
     margin-top: 60px;
-    padding: 0 272px;
+    padding: 0;
 }
 .portfolio-button-container>.button_bordered:nth-child(4) {
     background-color: #BDAE82;
@@ -243,11 +243,11 @@ body {
 }
 
 .portfolio-container {
-    height: 1145px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
-    align-content: space-between;
+    gap: 25px;
+    justify-content: center;
+    align-content: center;
     margin-top: 58px;
     padding: 0 20px;
 }
@@ -259,24 +259,37 @@ body {
 /*video*/
 
 .video {
-    height: 945px;
+
 }
 .video-player-container {
+    display: flex;
     flex-direction: column;
     text-align: center;
     margin: 58px 0 0;
-    padding: 0;
+    padding: 0 20px;
+    position: relative;
+}
+.video-payer-container_preview {
+    width: 100%;
+    object-fit: contain;
 }
 .button-play {
-    position: relative;
-    top: -423px;
-    height: 134px;
-    width: 134px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: max-content;
+    width: max-content;
     padding: 0;
+    margin: 0 auto;
+    background: none;
     border: none;
     border-radius: 50%;
-    background: url("../assets/svg/play-btn.svg") center;
+    transform: translate(-50%, -50%);
     transition: .3s;
+    backface-visibility: inherit;
+}
+.button-play__image {
+    max-width: 148px;
 }
 .button-play:hover {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
@@ -477,4 +490,30 @@ body {
     filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
     contrast(87%);
     cursor: pointer;
+}
+
+@media screen and (max-width: 768px){
+    /*skills*/
+    .skills-container {
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+    .skills-container-item {
+        flex-basis: 50%;
+        margin-bottom: 40px;
+    }
+
+    /*portfolio*/
+    .portfolio-button-container {
+        display: grid;
+        grid-template-columns: repeat(2, 220px);
+        grid-gap: 5px;
+        justify-content: center;
+        padding: 0;
+    }
+
+    /*video*/
+    .button-play__image {
+        max-width: 75px;
+    }
 }
