@@ -1,3 +1,7 @@
+:root {
+    --filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
+    contrast(87%);
+}
 html {
     box-sizing: border-box;
     scroll-behavior: smooth;
@@ -10,6 +14,7 @@ html {
 body {
     margin: 0;
     background-color: #000;
+    overflow-x: hidden;
 }
 
 .container {
@@ -23,17 +28,16 @@ body {
     flex-direction: row;
     align-items: center;
     max-width: 1440px;
-    padding: 0 0;
+    padding: 0 20px;
     margin: 0 auto;
     background: url("../assets/img/bg-hero.jpg") no-repeat center 0;
+
 }
 .logo {
-    margin-left: 20px;
     transition: .3s;
 }
 .logo:hover {
-    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
-    contrast(87%);
+    filter: var(--filter);
     cursor: pointer;
 }
 .header__navigation {
@@ -59,14 +63,12 @@ body {
     transition: .4s;
 }
 .navigation-link:hover {
-    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
-    contrast(87%);
+    filter: var(--filter);
     cursor: pointer;
 }
 .switch-lang {
     display: flex;
     align-items: center;
-    margin-right: 20px;
 }
 .switch-lang__text,
 .switch-lang__slash {
@@ -83,6 +85,51 @@ body {
 }
 .switch-lang__slash {
     margin: 0 10px;
+}
+
+.adapt-menu-button {
+    display: none;
+    z-index: 2;
+}
+.adapt-menu-button:hover {
+    filter: var(--filter);
+    cursor: pointer;
+}
+.adapt-menu-button_open .line:nth-child(1) {
+    transform: translateX(-5px) rotate(-45deg);
+    cursor: pointer;
+}
+.adapt-menu-button_open .line:nth-child(3) {
+    transform: translateX(-5px) rotate(45deg);
+    cursor: pointer;
+}
+.line {
+    width: 30px;
+    height: 2px;
+    margin: 8px auto;
+    background-color: #fff;
+    transition: all .3s ease-in-out;
+}
+.adapt-menu-navigation {
+    display: none;
+    padding-top: 80px;
+    padding-left: 20px;
+    position: absolute;
+    top: -20px;
+    right: -200px;
+    width: 200px;
+    z-index: 1;
+    background-color: #000;
+    transition: .5s;
+}
+.adapt-menu-navigation_open {
+    right: 0;
+}
+.navigation__item {
+    list-style: none;
+}
+.adapt-menu-navigation .navigation-link {
+    line-height: 50px;
 }
 
 .main-container {
@@ -288,8 +335,7 @@ body {
     max-width: 148px;
 }
 .button-play:hover {
-    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
-    contrast(87%);
+    filter: var(--filter);
     cursor: pointer;
 }
 /*price*/
@@ -443,8 +489,7 @@ body {
     transition: .4s;
 }
 .footer-link-git:hover {
-    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
-    contrast(87%);
+    filter: var(--filter);
     cursor: pointer;
 }
 .footer-link-rs {
@@ -457,8 +502,7 @@ body {
     transition: .4s;
 }
 .footer-link-rs:hover {
-    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
-    contrast(87%);
+    filter: var(--filter);
     cursor: pointer;
 }
 .footer-link-git,
@@ -484,8 +528,7 @@ body {
     transition: .3s;
 }
 .footer-menu__item:hover {
-    filter: invert(26%) sepia(15%) saturate(638%) hue-rotate(7deg) brightness(92%)
-    contrast(87%);
+    filter: var(--filter);
     cursor: pointer;
 }
 
@@ -503,11 +546,22 @@ body {
 
     /*header*/
     .header-container {
-        justify-content: space-between;
-        padding: 20px 0;
+        padding: 20px;
+    }
+    .logo {
+        margin-right: auto;
     }
     .header__navigation {
         display: none;
+    }
+    .switch-lang {
+        margin-right: 40px;
+    }
+    .adapt-menu-button {
+        display: block;
+    }
+    .adapt-menu-navigation {
+        display: block;
     }
 
     /*hero*/

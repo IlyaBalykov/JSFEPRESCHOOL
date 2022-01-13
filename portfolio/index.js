@@ -1,3 +1,22 @@
+const menuButton = document.querySelector(".adapt-menu-button")
+const menuLink = document.querySelector(".adapt-menu-navigation")
+const navLinks = document.querySelectorAll(".navigation-link")
+
+menuButton.addEventListener("click", openMenu);
+navLinks.forEach((element) => element.addEventListener('click', closeMenu));
+
+function openMenu() {
+  menuButton.classList.toggle('adapt-menu-button_open')
+  menuLink.classList.toggle('adapt-menu-navigation_open')
+}
+
+function closeMenu(event) {
+  if (event.target.classList.contains('navigation-link')) {
+    menuButton.classList.remove('adapt-menu-button_open')
+    menuLink.classList.remove('adapt-menu-navigation_open')
+  }
+}
+
 console.log("Вёрстка валидная +10\n" +
   "Вёрстка семантическая +20\n" +
   "В коде странице присутствуют следующие элементы (указано минимальное количество, может быть больше):\n" +
