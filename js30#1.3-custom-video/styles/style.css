@@ -96,7 +96,7 @@ body {
     border: none;
     cursor: pointer;
 }
-.play-button {
+.player__play-btn {
     background: url("../assets/svg/play.svg") no-repeat center center;
 }
 .player__progress {
