@@ -1,9 +1,10 @@
 const menuButton = document.querySelector(".adapt-menu-button")
 const menuLink = document.querySelector(".adapt-menu-navigation")
-const navLinks = document.querySelectorAll(".navigation-link")
+const navLinks = document.querySelectorAll(".adapt-menu-link")
 
 menuButton.addEventListener("click", openMenu);
 navLinks.forEach((element) => element.addEventListener('click', closeMenu));
+window.addEventListener('scroll', closeMenuOnScroll)
 
 function openMenu() {
   menuButton.classList.toggle('adapt-menu-button_open')
@@ -11,10 +12,15 @@ function openMenu() {
 }
 
 function closeMenu(event) {
-  if (event.target.classList.contains('navigation-link')) {
+  if (event.target.classList.contains('adapt-menu-link')) {
     menuButton.classList.remove('adapt-menu-button_open')
     menuLink.classList.remove('adapt-menu-navigation_open')
   }
+}
+
+function closeMenuOnScroll() {
+  menuButton.classList.remove('adapt-menu-button_open')
+  menuLink.classList.remove('adapt-menu-navigation_open')
 }
 
 console.log("1.Вёрстка соответствует макету. Ширина экрана 768px +48\n" +
