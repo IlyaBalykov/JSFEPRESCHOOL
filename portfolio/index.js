@@ -3,10 +3,12 @@ const menuLink = document.querySelector(".adapt-menu-navigation")
 const navLinks = document.querySelectorAll(".adapt-menu-link")
 const portfolioBtnContainer = document.querySelector(".portfolio-button-container")
 const portfolioBtn = document.querySelectorAll(".portfolio-button")
+const portfolioImages = document.querySelectorAll(".portfolio-container__image")
 
 menuButton.addEventListener("click", openMenu);
 navLinks.forEach((element) => element.addEventListener('click', closeMenu));
 window.addEventListener('scroll', closeMenuOnScroll)
+portfolioBtnContainer.addEventListener("click", changeImage)
 
 // Burger-menu
 function openMenu() {
@@ -29,7 +31,10 @@ function closeMenuOnScroll() {
 // Portfolio
 function changeImage(event) {
   if(event.target.classList.contains('portfolio-button')) {
-
+    portfolioImages.forEach((element, index) => {
+      element.src = `./assets/img/${event.target.dataset.season}/${index+1}.jpg`
+    })
+    console.log("cluck!")
   }
 }
 
