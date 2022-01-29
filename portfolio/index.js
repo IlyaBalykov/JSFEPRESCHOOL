@@ -1,11 +1,14 @@
 const menuButton = document.querySelector(".adapt-menu-button")
 const menuLink = document.querySelector(".adapt-menu-navigation")
 const navLinks = document.querySelectorAll(".adapt-menu-link")
+const portfolioBtnContainer = document.querySelector(".portfolio-button-container")
+const portfolioBtn = document.querySelectorAll(".portfolio-button")
 
 menuButton.addEventListener("click", openMenu);
 navLinks.forEach((element) => element.addEventListener('click', closeMenu));
 window.addEventListener('scroll', closeMenuOnScroll)
 
+// Burger-menu
 function openMenu() {
   menuButton.classList.toggle('adapt-menu-button_open')
   menuLink.classList.toggle('adapt-menu-navigation_open')
@@ -21,6 +24,13 @@ function closeMenu(event) {
 function closeMenuOnScroll() {
   menuButton.classList.remove('adapt-menu-button_open')
   menuLink.classList.remove('adapt-menu-navigation_open')
+}
+
+// Portfolio
+function changeImage(event) {
+  if(event.target.classList.contains('portfolio-button')) {
+
+  }
 }
 
 console.log("1.Вёрстка соответствует макету. Ширина экрана 768px +48\n" +
