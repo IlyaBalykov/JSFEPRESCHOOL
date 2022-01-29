@@ -197,13 +197,16 @@ body {
     border: none;
     transition: .4s;
 }
+
 .button-hero {
     margin-top: 25px;
 }
+
 .button_colored:hover {
     cursor: pointer;
     color: #fff;
 }
+
 .skills,
 .portfolio,
 .video,
@@ -285,24 +288,25 @@ body {
     margin-top: 60px;
     padding: 0;
 }
-.portfolio-button-container>.button_bordered:nth-child(4) {
-    background-color: #BDAE82;
-    color: black;
-}
-.portfolio-button-container>.button_bordered:nth-child(4):hover {
-    color: #fff;
-}
+
 .button_bordered {
     border: 2px solid #BDAE82;
     background-color: #000;
     color: #BDAE82;
     transition: .4s;
 }
+
 .button_bordered:hover {
     color: #fff;
     cursor: pointer;
 }
-
+.button-bordered_active {
+    background-color: #BDAE82;
+    color: black;
+}
+.button-bordered_active:hover {
+    color: #fff;
+}
 .portfolio-container {
     display: flex;
     flex-wrap: wrap;

@@ -8,7 +8,7 @@ const portfolioImages = document.querySelectorAll(".portfolio-container__image")
 menuButton.addEventListener("click", openMenu);
 navLinks.forEach((element) => element.addEventListener('click', closeMenu));
 window.addEventListener('scroll', closeMenuOnScroll)
-portfolioBtnContainer.addEventListener("click", changeImage)
+portfolioBtnContainer.addEventListener("click", changePortfolio)
 
 // Burger-menu
 function openMenu() {
@@ -29,12 +29,26 @@ function closeMenuOnScroll() {
 }
 
 // Portfolio
+function changePortfolio(event) {
+  changeClassActive(event)
+  changeImage(event)
+}
+
+function changeClassActive(event) {
+  console.log("work")
+  if(event.target.classList.contains('portfolio-button')) {
+    portfolioBtn.forEach((element) => {
+      element.classList.remove('button-bordered_active')
+    })
+    event.target.classList.add('button-bordered_active')
+  }
+}
+
 function changeImage(event) {
   if(event.target.classList.contains('portfolio-button')) {
     portfolioImages.forEach((element, index) => {
       element.src = `./assets/img/${event.target.dataset.season}/${index+1}.jpg`
     })
-    console.log("cluck!")
   }
 }
 
