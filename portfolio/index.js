@@ -10,6 +10,8 @@ navLinks.forEach((element) => element.addEventListener('click', closeMenu));
 window.addEventListener('scroll', closeMenuOnScroll)
 portfolioBtnContainer.addEventListener("click", changePortfolio)
 
+preloadImages()
+
 // Burger-menu
 function openMenu() {
   menuButton.classList.toggle('adapt-menu-button_open')
@@ -35,7 +37,6 @@ function changePortfolio(event) {
 }
 
 function changeClassActive(event) {
-  console.log("work")
   if(event.target.classList.contains('portfolio-button')) {
     portfolioBtn.forEach((element) => {
       element.classList.remove('button-bordered_active')
@@ -50,6 +51,16 @@ function changeImage(event) {
       element.src = `./assets/img/${event.target.dataset.season}/${index+1}.jpg`
     })
   }
+}
+
+function preloadImages() {
+  const seasons = ['winter', 'spring', 'summer', 'autumn'];
+  seasons.forEach(element => {
+    for(let i=1; i<=6; i++){
+      const img = new Image();
+      img.src = `./assets/img/${element}/${i}.jpg`
+    }
+  })
 }
 
 console.log("1.Вёрстка соответствует макету. Ширина экрана 768px +48\n" +
