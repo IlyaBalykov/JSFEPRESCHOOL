@@ -1,13 +1,17 @@
-import i18Obj from "./translate";
+import i18Obj from "./translate.js";
 
 const menuButton = document.querySelector(".adapt-menu-button")
 const menuLink = document.querySelector(".adapt-menu-navigation")
 const navLinks = document.querySelectorAll(".adapt-menu-link")
+const langBtn = document.querySelector(".switch-lang")
+const langSwitchBtn = document.querySelectorAll(".switch-lang__text")
+const translateData = document.querySelectorAll("[data-i18n]")
 const portfolioBtnContainer = document.querySelector(".portfolio-button-container")
 const portfolioBtn = document.querySelectorAll(".portfolio-button")
 const portfolioImages = document.querySelectorAll(".portfolio-container__image")
 
 menuButton.addEventListener("click", openMenu);
+langBtn.addEventListener("click", getTranslate)
 navLinks.forEach((element) => element.addEventListener('click', closeMenu));
 window.addEventListener('scroll', closeMenuOnScroll)
 portfolioBtnContainer.addEventListener("click", changePortfolio)
@@ -30,6 +34,22 @@ function closeMenu(event) {
 function closeMenuOnScroll() {
   menuButton.classList.remove('adapt-menu-button_open')
   menuLink.classList.remove('adapt-menu-navigation_open')
+}
+
+//Language
+
+function getTranslate(event) {
+  langSwitchBtn.forEach(element => {
+    element.classList.remove('lang_active')
+  })
+  event.target.classList.add('lang_active')
+  translateData.forEach(element => {
+    if (element.placeholder){
+      element.placeholder = i18Obj[event.target.textContent][element.dataset.i18n]
+    }
+    element.textContent = ""
+    element.textContent = i18Obj[event.target.textContent][element.dataset.i18n]
+  })
 }
 
 // Portfolio

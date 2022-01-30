@@ -79,7 +79,7 @@ body {
     font-size: 20px;
     line-height: 50px;
 }
-.switch-lang__text_active {
+.lang_active {
     color: #BDAE82;
 }
 .switch-lang__slash {
