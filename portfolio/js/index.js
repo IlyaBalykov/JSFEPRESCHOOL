@@ -1,3 +1,5 @@
+import i18Obj from "./translate";
+
 const menuButton = document.querySelector(".adapt-menu-button")
 const menuLink = document.querySelector(".adapt-menu-navigation")
 const navLinks = document.querySelectorAll(".adapt-menu-link")
