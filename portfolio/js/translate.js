@@ -36,6 +36,9 @@ const i18Obj = {
     'price-description-3-span-4': 'Readiness 1 week',
     'price-description-3-span-5': 'Make up, visage, hairstyle',
     'order': 'Order shooting',
+    'e-mail': 'E-mail',
+    'phone': 'Phone',
+    'message': 'Message',
     'contact-me': 'Contact me',
     'send-message': 'Send message'
   },
@@ -76,6 +79,9 @@ const i18Obj = {
     'price-description-3-span-4': 'Готовность через 1 неделю',
     'price-description-3-span-5': 'Макияж, визаж, прическа',
     'order': 'Заказать съемку',
+    'e-mail': 'Электронная почта',
+    'phone': 'Телефон',
+    'message': 'Сообщение',
     'contact-me': 'Свяжитесь со мной',
     'send-message': 'Отправить'
   }
