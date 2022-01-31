@@ -3,18 +3,47 @@ import i18Obj from "./translate.js";
 const menuButton = document.querySelector(".adapt-menu-button")
 const menuLink = document.querySelector(".adapt-menu-navigation")
 const navLinks = document.querySelectorAll(".adapt-menu-link")
-const langBtn = document.querySelector(".switch-lang")
+
 const langSwitchBtn = document.querySelectorAll(".switch-lang__text")
+const langEn = document.querySelector(".english")
+const langRu = document.querySelector(".russian")
+
+
+const themeBtn = document.querySelector(".switch-theme")
+const themeSwitchImg = document.querySelector(".switch-theme__icon")
+
 const translateData = document.querySelectorAll("[data-i18n]")
+
 const portfolioBtnContainer = document.querySelector(".portfolio-button-container")
 const portfolioBtn = document.querySelectorAll(".portfolio-button")
 const portfolioImages = document.querySelectorAll(".portfolio-container__image")
 
-menuButton.addEventListener("click", openMenu);
-langBtn.addEventListener("click", getTranslate)
+const iconLogo = document.querySelector(".logo")
+const socialInst = document.querySelector(".instagram")
+const socialFb = document.querySelector(".facebook")
+const socialTw = document.querySelector(".twitter")
+const socialPin = document.querySelector(".pinterest")
+
+let lang = 'EN'
+let theme = 'dark'
+
+window.addEventListener('load', getLocaleStorage);
+window.addEventListener('beforeunload', setLocaleStorage);
+window.addEventListener('scroll', closeMenuOnScroll);
+menuButton.addEventListener('click', openMenu);
+langEn.addEventListener('click', () => getTranslate('EN'));
+langRu.addEventListener('click', () => getTranslate('RU'));
+themeBtn.addEventListener('click', () => {
+  if(themeSwitchImg.src.includes("sun")) {
+    theme = 'dark'
+    switchTheme(theme)
+  } else if (themeSwitchImg.src.includes("moon")) {
+    theme = 'light'
+    switchTheme(theme)
+  }
+});
 navLinks.forEach((element) => element.addEventListener('click', closeMenu));
-window.addEventListener('scroll', closeMenuOnScroll)
-portfolioBtnContainer.addEventListener("click", changePortfolio)
+portfolioBtnContainer.addEventListener("click", changePortfolio);
 
 preloadImages()
 
@@ -37,19 +66,66 @@ function closeMenuOnScroll() {
 }
 
 //Language
-
-function getTranslate(event) {
+function getTranslate() {
   langSwitchBtn.forEach(element => {
     element.classList.remove('lang_active')
   })
-  event.target.classList.add('lang_active')
+  if (arguments[0] === 'EN') {
+    lang = 'EN'
+    langEn.classList.add('lang_active')
+  } else if (arguments[0] === 'RU') {
+    lang = 'RU'
+    langRu.classList.add('lang_active')
+  }
   translateData.forEach(element => {
-    if (element.placeholder){
-      element.placeholder = i18Obj[event.target.textContent][element.dataset.i18n]
+    if (element.placeholder) {
+      element.placeholder = i18Obj[arguments[0]][element.dataset.i18n]
     }
     element.textContent = ""
-    element.textContent = i18Obj[event.target.textContent][element.dataset.i18n]
+    element.textContent = i18Obj[arguments[0]][element.dataset.i18n]
   })
+}
+
+//Theme
+function switchTheme() {
+  console.log(arguments)
+  if (theme === 'dark') {
+    themeSwitchImg.setAttribute('src', "./assets/svg/moon.svg")
+    document.documentElement.style.setProperty('--body-color', '#fff')
+    document.documentElement.style.setProperty('--text-color', '#000')
+    document.documentElement.style.setProperty('--text-gold-black', '#000')
+    document.documentElement.style.setProperty('--hover-color', '#000')
+    document.documentElement.style.setProperty('--lang-active', '#fff')
+    document.documentElement.style.setProperty('--bg-placeholder', 'rgba(255, 255, 255, 0.5)')
+    document.documentElement.style.setProperty('--bg-hero', 'url("../assets/img/bg-hero-light.jpg")')
+    document.documentElement.style.setProperty('--bg-hero-tablet', 'url("../assets/img/bg-hero-tablet-light.jpg")')
+    document.documentElement.style.setProperty('--bg-contact', 'url("../assets/img/bg-contacts-light.jpg")')
+    document.documentElement.style.setProperty('--bg-sidebar', '#fff')
+    document.documentElement.style.setProperty('--bg-sidebar-btn', '#000')
+    iconLogo.src = './assets/svg/logo-black.svg'
+    socialInst.src = './assets/svg/inst-black.svg'
+    socialFb.src = './assets/svg/fb-black.svg'
+    socialTw.src = './assets/svg/tw-black.svg'
+    socialPin.src = './assets/svg/pin-black.svg'
+  } else if (theme === 'light') {
+    themeSwitchImg.setAttribute('src', "./assets/svg/sun.svg")
+    document.documentElement.style.setProperty('--body-color', '#000')
+    document.documentElement.style.setProperty('--text-color', '#fff')
+    document.documentElement.style.setProperty('--text-gold-black', '#BDAE82')
+    document.documentElement.style.setProperty('--hover-color', '#fff')
+    document.documentElement.style.setProperty('--lang-active', '#BDAE82')
+    document.documentElement.style.setProperty('--bg-placeholder', 'rgba(0, 0, 0, 0.5)')
+    document.documentElement.style.setProperty('--bg-hero', 'url("../assets/img/bg-hero.jpg")')
+    document.documentElement.style.setProperty('--bg-hero-tablet', 'url("../assets/img/bg-hero-tablet.jpg")')
+    document.documentElement.style.setProperty('--bg-contact', 'url("../assets/img/bg-contacts.jpg")')
+    document.documentElement.style.setProperty('--bg-sidebar', '#000')
+    document.documentElement.style.setProperty('--bg-sidebar-btn', '#fff')
+    iconLogo.src = './assets/svg/logo.svg'
+    socialInst.src = './assets/svg/inst.svg'
+    socialFb.src = './assets/svg/fb.svg'
+    socialTw.src = './assets/svg/tw.svg'
+    socialPin.src = './assets/svg/pin.svg'
+  }
 }
 
 // Portfolio
@@ -59,7 +135,7 @@ function changePortfolio(event) {
 }
 
 function changeClassActive(event) {
-  if(event.target.classList.contains('portfolio-button')) {
+  if (event.target.classList.contains('portfolio-button')) {
     portfolioBtn.forEach((element) => {
       element.classList.remove('button-bordered_active')
     })
@@ -68,9 +144,9 @@ function changeClassActive(event) {
 }
 
 function changeImage(event) {
-  if(event.target.classList.contains('portfolio-button')) {
+  if (event.target.classList.contains('portfolio-button')) {
     portfolioImages.forEach((element, index) => {
-      element.src = `./assets/img/${event.target.dataset.season}/${index+1}.jpg`
+      element.src = `./assets/img/${event.target.dataset.season}/${index + 1}.jpg`
     })
   }
 }
@@ -78,11 +154,31 @@ function changeImage(event) {
 function preloadImages() {
   const seasons = ['winter', 'spring', 'summer', 'autumn'];
   seasons.forEach(element => {
-    for(let i=1; i<=6; i++){
-      const img = new Image();
+    const img = new Image();
+    for (let i = 1; i <= 6; i++) {
       img.src = `./assets/img/${element}/${i}.jpg`
     }
+    img.src = './assets/img/bg-hero-light.jpg'
+    img.src = './assets/img/bg-contacts-light.jpg'
   })
+}
+
+//LocaleStorage
+//Language
+function setLocaleStorage() {
+  localStorage.setItem('lang', lang);
+  localStorage.setItem('theme', theme);
+}
+
+function getLocaleStorage() {
+  if (localStorage.getItem('lang')) {
+    lang = localStorage.getItem('lang')
+    getTranslate(lang)
+  }
+  if (localStorage.getItem('theme')) {
+    theme = localStorage.getItem('theme')
+    switchTheme(theme)
+  }
 }
 
 console.log("1.Вёрстка соответствует макету. Ширина экрана 768px +48\n" +

@@ -1,5 +1,5 @@
 const i18Obj = {
-  'en': {
+  'EN': {
     'skills': 'Skills',
     'portfolio': 'Portfolio',
     'video': 'Video',
@@ -39,7 +39,7 @@ const i18Obj = {
     'contact-me': 'Contact me',
     'send-message': 'Send message'
   },
-  'ru': {
+  'RU': {
     'skills': 'Навыки',
     'portfolio': 'Портфолио',
     'video': 'Видео',
