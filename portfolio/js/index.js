@@ -102,6 +102,9 @@ function switchTheme() {
     document.documentElement.style.setProperty('--bg-contact', 'url("../assets/img/bg-contacts-light.jpg")')
     document.documentElement.style.setProperty('--bg-sidebar', '#fff')
     document.documentElement.style.setProperty('--bg-sidebar-btn', '#000')
+    document.documentElement.style.setProperty('--bg-btn-bordered', '#BDAE82')
+    document.documentElement.style.setProperty('--bg-btn-colored', '#fff')
+    document.documentElement.style.setProperty('--text-btn-active', '#BDAE82')
     iconLogo.src = './assets/svg/logo-black.svg'
     socialInst.src = './assets/svg/inst-black.svg'
     socialFb.src = './assets/svg/fb-black.svg'
@@ -120,6 +123,9 @@ function switchTheme() {
     document.documentElement.style.setProperty('--bg-contact', 'url("../assets/img/bg-contacts.jpg")')
     document.documentElement.style.setProperty('--bg-sidebar', '#000')
     document.documentElement.style.setProperty('--bg-sidebar-btn', '#fff')
+    document.documentElement.style.setProperty('--bg-btn-bordered', '#000')
+    document.documentElement.style.setProperty('--bg-btn-colored', '#BDAE82')
+    document.documentElement.style.setProperty('--text-btn-active', '#fff')
     iconLogo.src = './assets/svg/logo.svg'
     socialInst.src = './assets/svg/inst.svg'
     socialFb.src = './assets/svg/fb.svg'

@@ -11,7 +11,10 @@
     --bg-contact: url("../assets/img/bg-contacts.jpg");
     --bg-placeholder: rgba(0, 0, 0, 0.5);
     --bg-sidebar: #000;
-    --bg-sidebar-btn:#fff;
+    --bg-sidebar-btn: #fff;
+    --bg-btn-bordered: #000;
+    --bg-btn-colored: #BDAE82;
+    --text-btn-active: #fff;
 }
 html {
     box-sizing: border-box;
@@ -214,19 +217,23 @@ body {
     text-align: center;
 }
 
+.button:hover, .button:focus {
+    box-shadow: 0 10px 15px -5px #BDAE82;
+    transform: translateY(-10px);
+}
+
 .button_colored {
-    background-color: #BDAE82;
+    background-color: var(--bg-btn-colored);
     border: none;
     transition: .4s;
 }
 
-.button-hero {
-    margin-top: 25px;
-}
-
 .button_colored:hover {
     cursor: pointer;
-    color: var(--hover-color);
+    color: var(--text-btn-active);
+}
+.button-hero {
+    margin-top: 25px;
 }
 
 .skills,
@@ -313,21 +320,20 @@ body {
 
 .button_bordered {
     border: 2px solid #BDAE82;
-    background-color: var(--body-color);
-    color: #BDAE82;
+    background-color: var(--bg-btn-bordered);
+    color: var(--text-gold-black);
     transition: .4s;
 }
-
 .button_bordered:hover {
     color: #fff;
     cursor: pointer;
 }
 .button-bordered_active {
-    background-color: #BDAE82;
-    color: black;
+    background-color: var(--text-gold-black);
+    color: var(--text-btn-active);
 }
 .button-bordered_active:hover {
-    color: #fff;
+    color: #fff
 }
 .portfolio-container {
     display: flex;
@@ -427,7 +433,11 @@ body {
     color: var(--text-color);
 }
 .button-price {
+    background-color: #BDAE82;
     margin-top: 38px;
+}
+.button-price:hover {
+    color: #fff;
 }
 
 /*contact*/
