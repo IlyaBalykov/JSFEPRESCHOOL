@@ -1,32 +1,48 @@
 import i18Obj from "./translate.js";
-
+import {
+  videoContainer,
+  videoPlayer,
+  controlBack,
+  controlForward,
+  controlMute,
+  controlPlay,
+  controlProgress,
+  controlVolume,
+  ready,
+  isPlaying,
+  toBack,
+  progressControl,
+  toForward,
+  isMuted,
+  volumeControl
+} from "./player.js";
+//Sidebar
 const menuButton = document.querySelector(".adapt-menu-button")
 const menuLink = document.querySelector(".adapt-menu-navigation")
 const navLinks = document.querySelectorAll(".adapt-menu-link")
-
+//Select language
 const langSwitchBtn = document.querySelectorAll(".switch-lang__text")
 const langEn = document.querySelector(".english")
-const langRu = document.querySelector(".russian")
-
-
+const langRu = document.querySelector(".russian"
+const translateData = document.querySelectorAll("[data-i18n]")
+//Select theme
 const themeBtn = document.querySelector(".switch-theme")
 const themeSwitchImg = document.querySelector(".switch-theme__icon")
-
-const translateData = document.querySelectorAll("[data-i18n]")
-
-const portfolioBtnContainer = document.querySelector(".portfolio-button-container")
-const portfolioBtn = document.querySelectorAll(".portfolio-button")
-const portfolioImages = document.querySelectorAll(".portfolio-container__image")
 
 const iconLogo = document.querySelector(".logo")
 const socialInst = document.querySelector(".instagram")
 const socialFb = document.querySelector(".facebook")
 const socialTw = document.querySelector(".twitter")
 const socialPin = document.querySelector(".pinterest")
-
+//Portfolio
+const portfolioBtnContainer = document.querySelector(".portfolio-button-container")
+const portfolioBtn = document.querySelectorAll(".portfolio-button")
+const portfolioImages = document.querySelectorAll(".portfolio-container__image")
+//Variables
 let lang = 'EN'
 let theme = 'dark'
 
+//Event listeners
 window.addEventListener('load', getLocaleStorage);
 window.addEventListener('beforeunload', setLocaleStorage);
 window.addEventListener('scroll', closeMenuOnScroll);
@@ -44,10 +60,20 @@ themeBtn.addEventListener('click', () => {
 });
 navLinks.forEach((element) => element.addEventListener('click', closeMenu));
 portfolioBtnContainer.addEventListener("click", changePortfolio);
+// Video
+videoPlayer.addEventListener("error", () => controlPlay.style.background = "url(\"./assets/svg/play.svg\") no-repeat center center");
+videoPlayer.addEventListener("ended", () => controlPlay.style.background = "url(\"./assets/svg/play.svg\") no-repeat center center");
+videoPlayer.addEventListener("canplaythrough", ready);
+controlPlay.addEventListener("click", isPlaying);
+controlBack.addEventListener("click", toBack);
+controlProgress.addEventListener("input", progressControl);
+controlForward.addEventListener("click", toForward);
+controlMute.addEventListener("click", isMuted);
+controlVolume.addEventListener("input", volumeControl);
 
 preloadImages()
 
-// Burger-menu
+//Sidebar
 function openMenu() {
   menuButton.classList.toggle('adapt-menu-button_open')
   menuLink.classList.toggle('adapt-menu-navigation_open')
@@ -65,7 +91,7 @@ function closeMenuOnScroll() {
   menuLink.classList.remove('adapt-menu-navigation_open')
 }
 
-//Language
+//Select language
 function getTranslate() {
   langSwitchBtn.forEach(element => {
     element.classList.remove('lang_active')
@@ -86,7 +112,7 @@ function getTranslate() {
   })
 }
 
-//Theme
+//Select theme
 function switchTheme() {
   if (theme === 'dark') {
     themeSwitchImg.setAttribute('src', "./assets/svg/moon.svg")
@@ -133,7 +159,7 @@ function switchTheme() {
   }
 }
 
-// Portfolio
+//Portfolio
 function changePortfolio(event) {
   changeClassActive(event)
   changeImage(event)
@@ -169,7 +195,6 @@ function preloadImages() {
 }
 
 //LocaleStorage
-//Language
 function setLocaleStorage() {
   localStorage.setItem('lang', lang);
   localStorage.setItem('theme', theme);
