@@ -23,7 +23,7 @@ const navLinks = document.querySelectorAll(".adapt-menu-link")
 //Select language
 const langSwitchBtn = document.querySelectorAll(".switch-lang__text")
 const langEn = document.querySelector(".english")
-const langRu = document.querySelector(".russian"
+const langRu = document.querySelector(".russian")
 const translateData = document.querySelectorAll("[data-i18n]")
 //Select theme
 const themeBtn = document.querySelector(".switch-theme")
