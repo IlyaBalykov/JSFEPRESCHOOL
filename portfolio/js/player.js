@@ -3,6 +3,7 @@ export const videoContainer = document.querySelector('.video-player-container');
 export const videoPlayer = document.querySelector('.viewer');
 
 //Controls
+export const controlContainer = videoContainer.querySelector('.player__controls');
 export const controlPlay = videoContainer.querySelector('.player__play-btn');
 export const controlProgress = videoContainer.querySelector('.player__progress');
 export const controlMute = videoContainer.querySelector('.player__volume-btn');
@@ -22,6 +23,8 @@ export function isPlaying() {
     controlPlayOnPreview.style.display = 'none'
     videoPlayer.play()
     controlPlay.style.background = "url(\"./assets/svg/pause.svg\") no-repeat center center";
+    controlContainer.style.transform = 'translateY(0)'
+
   } else {
     controlPlayOnPreview.style.display = 'block'
     videoPlayer.pause()
@@ -42,13 +45,11 @@ export function progressCurrentTime() {
 setInterval(progressCurrentTime, 100)
 
 export function isMuted() {
-  console.log(controlVolume)
-  console.log(videoPlayer.volume)
   if (videoPlayer.volume !== 0) {
     videoPlayer.volume = 0;
     controlMute.style.background = "url(\"./assets/svg/mute.svg\") no-repeat center center";
   } else {
-    if(currentVolume=== '0%') {
+    if (currentVolume === '0%') {
       console.log('Ноль', controlVolume.value)
       videoPlayer.volume = .5
       controlVolume.value = videoPlayer.volume
@@ -69,7 +70,7 @@ export function updateVolumeControl() {
   if (controlMute.style.background !== "url(\"./assets/svg/volume.svg\") no-repeat center center") {
     controlMute.style.background = "url(\"./assets/svg/volume.svg\") no-repeat center center";
   }
-  if (currentVolume==='0%') {
+  if (currentVolume === '0%') {
     controlMute.style.background = "url(\"./assets/svg/mute.svg\") no-repeat center center";
   }
 }

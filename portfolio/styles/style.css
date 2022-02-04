@@ -165,7 +165,7 @@ body {
     padding-left: 127px;
     position: fixed;
     top: -40px;
-    right: -150%;
+    right: -100%;
     width: 620px;
     z-index: 2;
     list-style: none;
@@ -392,23 +392,25 @@ body {
 
 /*video*/
 
-.video{
+.video {
     display: flex;
     flex-direction: column;
     align-content: center;
     width: 100%;
 }
+
 .video-player-container {
     display: flex;
     flex-direction: column;
     align-content: center;
+    align-self: center;
     max-width: 1400px;
     text-align: center;
     margin: 58px 0 0;
     padding: 0;
     position: relative;
     overflow: hidden;
-    align-self: center;
+    border: 2px solid #BDAE82;
 }
 
 .button-play {
@@ -444,14 +446,16 @@ body {
 
 .player__controls {
     display: flex;
-    justify-content: space-between;
+    flex-direction: row;
+    justify-content: space-around;
     align-items: center;
     column-gap: 10px;
     flex-wrap: wrap;
-    padding: 0 15px;
-    width: 100%;
-    position: absolute;
+    padding: 0 20px;
+    width: calc(100% + 2px);
+    height: 60px;
     bottom: 0;
+    position: absolute;
     transform: translateY(100%);
     transition: all .3s;
     background-color: rgba(0, 0, 0, .5);
@@ -473,7 +477,7 @@ body {
 }
 
 .player__progress {
-    width: 50%;
+    width: calc(80% - 160px);
     height: 10px;
     appearance: none;
 }
@@ -874,6 +878,21 @@ body {
         object-fit: contain;
     }
 
+    .player__controls {
+        padding-top: 12px;
+    }
+
+    .player__progress {
+        position: absolute;
+        top: 0;
+        width: 100%;
+        margin: 0;
+    }
+
+    .player__volume {
+        width: calc(80% - 80px);
+    }
+
     /*price*/
     .price {
         padding-bottom: 80px;
@@ -933,10 +952,16 @@ body {
     }
 }
 
+@media (max-width: 620px) {
+    .adapt-menu-navigation {
+        width: 100%;
+    }
+}
+
 @media (max-width: 480px) {
     /*header*/
-    .adapt-menu-navigation {
-        max-width: 320px;
+    .header-container {
+        padding: 20px 20px;
     }
 
     /*portfolio*/
@@ -951,6 +976,10 @@ body {
 
     .portfolio-container-image {
         width: 250px;
+    }
+
+    .portfolio-container__image {
+        width: 320px;
     }
 
     /*price*/

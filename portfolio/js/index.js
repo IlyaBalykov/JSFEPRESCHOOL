@@ -30,6 +30,8 @@ const socialInst = document.querySelector(".instagram")
 const socialFb = document.querySelector(".facebook")
 const socialTw = document.querySelector(".twitter")
 const socialPin = document.querySelector(".pinterest")
+//Hero
+const heroBtn = document.querySelector(".button-hero")
 //Portfolio
 const portfolioBtnContainer = document.querySelector(".portfolio-button-container")
 const portfolioBtn = document.querySelectorAll(".portfolio-button")
@@ -47,7 +49,7 @@ menuButton.addEventListener('click', openMenu);
 langEn.addEventListener('click', () => getTranslate('EN'));
 langRu.addEventListener('click', () => getTranslate('RU'));
 themeBtn.addEventListener('click', () => {
-  if(themeSwitchImg.src.includes("sun")) {
+  if (themeSwitchImg.src.includes("sun")) {
     theme = 'dark'
     switchTheme(theme)
   } else if (themeSwitchImg.src.includes("moon")) {
@@ -57,6 +59,7 @@ themeBtn.addEventListener('click', () => {
 });
 navLinks.forEach((element) => element.addEventListener('click', closeMenu));
 portfolioBtnContainer.addEventListener("click", changePortfolio);
+heroBtn.addEventListener("click", scrollToContacts);
 
 // Video
 videoPlayer.addEventListener('error', () => controlPlay.style.background = "url(\"./assets/svg/play.svg\") no-repeat center center");
@@ -157,6 +160,11 @@ function switchTheme() {
   }
 }
 
+//Hero
+function scrollToContacts() {
+  location.href = '#contact'
+}
+
 //Portfolio
 function changePortfolio(event) {
   changeClassActive(event)
@@ -189,6 +197,8 @@ function preloadImages() {
     }
     img.src = './assets/img/bg-hero-light.jpg'
     img.src = './assets/img/bg-contacts-light.jpg'
+    img.src = './assets/svg/mute.svg'
+    img.src = './assets/svg/pause.svg'
   })
 }
 
