@@ -2,19 +2,15 @@ import i18Obj from "./translate.js";
 import {
   videoContainer,
   videoPlayer,
-  controlBack,
-  controlForward,
   controlMute,
   controlPlay,
   controlProgress,
   controlVolume,
   ready,
   isPlaying,
-  toBack,
   progressControl,
-  toForward,
   isMuted,
-  volumeControl
+  updateVolumeControl, controlPlayOnPreview
 } from "./player.js";
 //Sidebar
 const menuButton = document.querySelector(".adapt-menu-button")
@@ -44,6 +40,7 @@ let theme = 'dark'
 
 //Event listeners
 window.addEventListener('load', getLocaleStorage);
+window.addEventListener('load', updateVolumeControl);
 window.addEventListener('beforeunload', setLocaleStorage);
 window.addEventListener('scroll', closeMenuOnScroll);
 menuButton.addEventListener('click', openMenu);
@@ -60,16 +57,17 @@ themeBtn.addEventListener('click', () => {
 });
 navLinks.forEach((element) => element.addEventListener('click', closeMenu));
 portfolioBtnContainer.addEventListener("click", changePortfolio);
+
 // Video
-videoPlayer.addEventListener("error", () => controlPlay.style.background = "url(\"./assets/svg/play.svg\") no-repeat center center");
-videoPlayer.addEventListener("ended", () => controlPlay.style.background = "url(\"./assets/svg/play.svg\") no-repeat center center");
-videoPlayer.addEventListener("canplaythrough", ready);
-controlPlay.addEventListener("click", isPlaying);
-controlBack.addEventListener("click", toBack);
-controlProgress.addEventListener("input", progressControl);
-controlForward.addEventListener("click", toForward);
-controlMute.addEventListener("click", isMuted);
-controlVolume.addEventListener("input", volumeControl);
+videoPlayer.addEventListener('error', () => controlPlay.style.background = "url(\"./assets/svg/play.svg\") no-repeat center center");
+videoPlayer.addEventListener('ended', () => controlPlay.style.background = "url(\"./assets/svg/play.svg\") no-repeat center center");
+videoPlayer.addEventListener('canplaythrough', ready);
+videoPlayer.addEventListener('click', isPlaying);
+controlPlay.addEventListener('click', isPlaying);
+controlPlayOnPreview.addEventListener('click', isPlaying);
+controlProgress.addEventListener('input', progressControl);
+controlMute.addEventListener('click', isMuted);
+controlVolume.addEventListener('input', updateVolumeControl);
 
 preloadImages()
 
@@ -211,18 +209,4 @@ function getLocaleStorage() {
   }
 }
 
-console.log("1. Смена изображений в секции portfolio [+25]\n" +
-  "  [x] при кликах по кнопкам Winter, Spring, Summer, Autumn в секции portfolio отображаются изображения из папки с соответствующим названием +20\n" +
-  "  [x] кнопка, по которой кликнули, становится активной т.е. выделяется стилем. Другие кнопки при этом будут неактивными +5\n" +
-  "2. Перевод страницы на два языка [+25]\n" +
-  "  [x] при клике по надписи ru англоязычная страница переводится на русский язык +10\n" +
-  "  [x] при клике по надписи en русскоязычная страница переводится на английский язык +10\n" +
-  "  [x] надписи en или ru, соответствующие текущему языку страницы, становятся активными т.е. выделяются стилем +5\n" +
-  "3. Переключение светлой и тёмной темы [+25]\n" +
-  "  На страницу добавлен переключатель при клике по которому:\n" +
-  "  [x] тёмная тема приложения сменяется светлой +10\n" +
-  "  [x] светлая тема приложения сменяется тёмной +10\n" +
-  "  [x] после смены светлой и тёмной темы интерактивные элементы по-прежнему изменяют внешний вид при наведении и клике и при этом остаются видимыми на странице (нет ситуации с белым шрифтом на белом фоне) +5\n" +
-  "4. Дополнительный функционал: выбранный пользователем язык отображения страницы и светлая или тёмная тема сохраняются при перезагрузке страницы [+5]\n" +
-  "5. Дополнительный функционал: сложные эффекты для кнопок при наведении и/или клике [+5]\n" +
-  "Итого: [+85]")
+console.log()
