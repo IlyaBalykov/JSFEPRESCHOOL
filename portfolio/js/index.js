@@ -1,40 +1,55 @@
 import i18Obj from "./translate.js";
-
+import {
+  videoContainer,
+  videoPlayer,
+  controlMute,
+  controlPlay,
+  controlProgress,
+  controlVolume,
+  ready,
+  isPlaying,
+  progressControl,
+  isMuted,
+  updateVolumeControl, controlPlayOnPreview
+} from "./player.js";
+//Sidebar
 const menuButton = document.querySelector(".adapt-menu-button")
 const menuLink = document.querySelector(".adapt-menu-navigation")
 const navLinks = document.querySelectorAll(".adapt-menu-link")
-
+//Select language
 const langSwitchBtn = document.querySelectorAll(".switch-lang__text")
 const langEn = document.querySelector(".english")
 const langRu = document.querySelector(".russian")
-
-
+const translateData = document.querySelectorAll("[data-i18n]")
+//Select theme
 const themeBtn = document.querySelector(".switch-theme")
 const themeSwitchImg = document.querySelector(".switch-theme__icon")
-
-const translateData = document.querySelectorAll("[data-i18n]")
-
-const portfolioBtnContainer = document.querySelector(".portfolio-button-container")
-const portfolioBtn = document.querySelectorAll(".portfolio-button")
-const portfolioImages = document.querySelectorAll(".portfolio-container__image")
 
 const iconLogo = document.querySelector(".logo")
 const socialInst = document.querySelector(".instagram")
 const socialFb = document.querySelector(".facebook")
 const socialTw = document.querySelector(".twitter")
 const socialPin = document.querySelector(".pinterest")
-
+//Hero
+const heroBtn = document.querySelector(".button-hero")
+//Portfolio
+const portfolioBtnContainer = document.querySelector(".portfolio-button-container")
+const portfolioBtn = document.querySelectorAll(".portfolio-button")
+const portfolioImages = document.querySelectorAll(".portfolio-container__image")
+//Variables
 let lang = 'EN'
 let theme = 'dark'
 
+//Event listeners
 window.addEventListener('load', getLocaleStorage);
+window.addEventListener('load', updateVolumeControl);
 window.addEventListener('beforeunload', setLocaleStorage);
 window.addEventListener('scroll', closeMenuOnScroll);
 menuButton.addEventListener('click', openMenu);
 langEn.addEventListener('click', () => getTranslate('EN'));
 langRu.addEventListener('click', () => getTranslate('RU'));
 themeBtn.addEventListener('click', () => {
-  if(themeSwitchImg.src.includes("sun")) {
+  if (themeSwitchImg.src.includes("sun")) {
     theme = 'dark'
     switchTheme(theme)
   } else if (themeSwitchImg.src.includes("moon")) {
@@ -44,10 +59,22 @@ themeBtn.addEventListener('click', () => {
 });
 navLinks.forEach((element) => element.addEventListener('click', closeMenu));
 portfolioBtnContainer.addEventListener("click", changePortfolio);
+heroBtn.addEventListener("click", scrollToContacts);
+
+// Video
+videoPlayer.addEventListener('error', () => controlPlay.style.background = "url(\"./assets/svg/play.svg\") no-repeat center center");
+videoPlayer.addEventListener('ended', () => controlPlay.style.background = "url(\"./assets/svg/play.svg\") no-repeat center center");
+videoPlayer.addEventListener('canplaythrough', ready);
+videoPlayer.addEventListener('click', isPlaying);
+controlPlay.addEventListener('click', isPlaying);
+controlPlayOnPreview.addEventListener('click', isPlaying);
+controlProgress.addEventListener('input', progressControl);
+controlMute.addEventListener('click', isMuted);
+controlVolume.addEventListener('input', updateVolumeControl);
 
 preloadImages()
 
-// Burger-menu
+//Sidebar
 function openMenu() {
   menuButton.classList.toggle('adapt-menu-button_open')
   menuLink.classList.toggle('adapt-menu-navigation_open')
@@ -65,7 +92,7 @@ function closeMenuOnScroll() {
   menuLink.classList.remove('adapt-menu-navigation_open')
 }
 
-//Language
+//Select language
 function getTranslate() {
   langSwitchBtn.forEach(element => {
     element.classList.remove('lang_active')
@@ -86,7 +113,7 @@ function getTranslate() {
   })
 }
 
-//Theme
+//Select theme
 function switchTheme() {
   if (theme === 'dark') {
     themeSwitchImg.setAttribute('src', "./assets/svg/moon.svg")
@@ -133,7 +160,12 @@ function switchTheme() {
   }
 }
 
-// Portfolio
+//Hero
+function scrollToContacts() {
+  location.href = '#contact'
+}
+
+//Portfolio
 function changePortfolio(event) {
   changeClassActive(event)
   changeImage(event)
@@ -165,11 +197,12 @@ function preloadImages() {
     }
     img.src = './assets/img/bg-hero-light.jpg'
     img.src = './assets/img/bg-contacts-light.jpg'
+    img.src = './assets/svg/mute.svg'
+    img.src = './assets/svg/pause.svg'
   })
 }
 
 //LocaleStorage
-//Language
 function setLocaleStorage() {
   localStorage.setItem('lang', lang);
   localStorage.setItem('theme', theme);
@@ -186,18 +219,4 @@ function getLocaleStorage() {
   }
 }
 
-console.log("1. Смена изображений в секции portfolio [+25]\n" +
-  "  [x] при кликах по кнопкам Winter, Spring, Summer, Autumn в секции portfolio отображаются изображения из папки с соответствующим названием +20\n" +
-  "  [x] кнопка, по которой кликнули, становится активной т.е. выделяется стилем. Другие кнопки при этом будут неактивными +5\n" +
-  "2. Перевод страницы на два языка [+25]\n" +
-  "  [x] при клике по надписи ru англоязычная страница переводится на русский язык +10\n" +
-  "  [x] при клике по надписи en русскоязычная страница переводится на английский язык +10\n" +
-  "  [x] надписи en или ru, соответствующие текущему языку страницы, становятся активными т.е. выделяются стилем +5\n" +
-  "3. Переключение светлой и тёмной темы [+25]\n" +
-  "  На страницу добавлен переключатель при клике по которому:\n" +
-  "  [x] тёмная тема приложения сменяется светлой +10\n" +
-  "  [x] светлая тема приложения сменяется тёмной +10\n" +
-  "  [x] после смены светлой и тёмной темы интерактивные элементы по-прежнему изменяют внешний вид при наведении и клике и при этом остаются видимыми на странице (нет ситуации с белым шрифтом на белом фоне) +5\n" +
-  "4. Дополнительный функционал: выбранный пользователем язык отображения страницы и светлая или тёмная тема сохраняются при перезагрузке страницы [+5]\n" +
-  "5. Дополнительный функционал: сложные эффекты для кнопок при наведении и/или клике [+5]\n" +
-  "Итого: [+85]")
+console.log()
