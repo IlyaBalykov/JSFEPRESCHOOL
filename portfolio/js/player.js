@@ -40,6 +40,10 @@ export function progressCurrentTime() {
   currentPercent = ((videoPlayer.currentTime * 100) / videoPlayer.duration) + '%'
   controlProgress.style.background = `linear-gradient(to right, rgb(189, 174, 130) 0%, rgb(189, 174, 130) ${currentPercent}, rgb(200, 200, 200) ${currentPercent}, rgb(200, 200, 200) 100%)`
   controlProgress.value = (videoPlayer.currentTime * 100 / videoPlayer.duration)
+  if(currentPercent === '100%') {
+    controlPlayOnPreview.style.display = 'block'
+  }
+
 }
 
 setInterval(progressCurrentTime, 100)
