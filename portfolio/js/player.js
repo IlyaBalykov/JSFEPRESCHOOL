@@ -43,7 +43,6 @@ export function progressCurrentTime() {
   if(currentPercent === '100%') {
     controlPlayOnPreview.style.display = 'block'
   }
-
 }
 
 setInterval(progressCurrentTime, 100)
