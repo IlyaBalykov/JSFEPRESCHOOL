@@ -17,14 +17,23 @@ async function getData() {
 }
 
 function showData(data) {
-  
+
   data.results.forEach((item, index) => {
-    let div = document.createElement('div');
-    let posterImage = document.createElement('img');
-    div.className = 'card'
-    posterImage.src = 'https://image.tmdb.org/t/p/w300' + `${data.results[index].poster_path}`
-    mainContainer.append(div)
-    div.append(posterImage)
+    let movieCard = document.createElement('div');
+    let moviePoster = document.createElement('img');
+    let movieTitle = document.createElement('h2');
+    let movieRating = document.createElement('div');
+    movieCard.className = 'card'
+    moviePoster.className = 'card__poster'
+    movieTitle.className = 'card__title'
+    movieRating.className = 'card__rating'
+    moviePoster.src = 'https://image.tmdb.org/t/p/w300' + `${data.results[index].poster_path}`
+    movieTitle.textContent = `${data.results[index].title}`
+    movieRating.textContent = `${data.results[index].vote_average}`
+    mainContainer.append(movieCard)
+    movieCard.append(moviePoster)
+    movieCard.append(movieTitle)
+    movieCard.append(movieRating)
   })
 }
 
