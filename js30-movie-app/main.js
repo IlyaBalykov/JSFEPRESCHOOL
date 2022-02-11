@@ -23,20 +23,27 @@ function showData(data) {
     let movieTitle = document.createElement('h2');
     let movieRating = document.createElement('div');
     let movieOverview = document.createElement('div');
+    let movieOverviewTitle = document.createElement('h3');
+    let movieOverviewText = document.createElement('p');
     movieCard.className = 'card'
     moviePoster.className = 'card__poster'
     movieInfo.className = 'card__info'
     movieTitle.className = 'card-info__title'
     movieRating.className = 'card-info__rating'
     movieOverview.className = 'card__overview'
+    movieOverviewTitle.className = 'card__overview-title'
+    movieOverviewText.className = 'card__overview-text'
     moviePoster.src = 'https://image.tmdb.org/t/p/w300' + `${data.results[index].poster_path}`
     movieTitle.textContent = `${data.results[index].title}`
     movieRating.textContent = `${data.results[index].vote_average}`
-    movieOverview.textContent = `${data.results[index].overview}`
+    movieOverviewText.textContent = `${data.results[index].overview}`
+    movieOverviewTitle.textContent = 'Overview'
     mainContainer.append(movieCard)
     movieCard.append(moviePoster)
     movieCard.append(movieInfo)
     movieCard.append(movieOverview)
+    movieOverview.append(movieOverviewTitle)
+    movieOverview.append(movieOverviewText)
     movieInfo.append(movieTitle)
     movieInfo.append(movieRating)
   })
