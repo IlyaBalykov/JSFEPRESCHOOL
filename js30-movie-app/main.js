@@ -1,7 +1,5 @@
-const image = document.querySelector('.card__image')
 const search = document.querySelector('.search')
 const mainContainer = document.querySelector('.main-container')
-
 
 search.addEventListener('keydown', (event) => event.keyCode === 13 ? getData() : false)
 
@@ -21,19 +19,26 @@ function showData(data) {
   data.results.forEach((item, index) => {
     let movieCard = document.createElement('div');
     let moviePoster = document.createElement('img');
+    let movieInfo = document.createElement('div');
     let movieTitle = document.createElement('h2');
     let movieRating = document.createElement('div');
+    let movieOverview = document.createElement('div');
     movieCard.className = 'card'
     moviePoster.className = 'card__poster'
-    movieTitle.className = 'card__title'
-    movieRating.className = 'card__rating'
+    movieInfo.className = 'card__info'
+    movieTitle.className = 'card-info__title'
+    movieRating.className = 'card-info__rating'
+    movieOverview.className = 'card__overview'
     moviePoster.src = 'https://image.tmdb.org/t/p/w300' + `${data.results[index].poster_path}`
     movieTitle.textContent = `${data.results[index].title}`
     movieRating.textContent = `${data.results[index].vote_average}`
+    movieOverview.textContent = `${data.results[index].overview}`
     mainContainer.append(movieCard)
     movieCard.append(moviePoster)
-    movieCard.append(movieTitle)
-    movieCard.append(movieRating)
+    movieCard.append(movieInfo)
+    movieCard.append(movieOverview)
+    movieInfo.append(movieTitle)
+    movieInfo.append(movieRating)
   })
 }
 
