@@ -83,7 +83,7 @@ body {
 .card-info__rating {
     font-family: var(--movie-rating-font);
     font-size: 14px;
-    color:green;
+    font-weight: bold;
     background: var(--second-background-color);
     width: 40px;
     text-align: center;

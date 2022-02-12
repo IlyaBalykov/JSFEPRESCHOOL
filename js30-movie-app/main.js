@@ -46,6 +46,18 @@ function showData(data) {
     movieOverview.append(movieOverviewText)
     movieInfo.append(movieTitle)
     movieInfo.append(movieRating)
+    
+    if (data.results[index].vote_average < 5) {
+      movieRating.style.color = '#ff0000'
+    } else if (data.results[index].vote_average > 8) {
+      movieRating.style.color = '#008000'
+    } else {
+      movieRating.style.color = '#ffff00'
+    }
+
+    if(moviePoster.src.includes('null')) {
+      moviePoster.src = './assets/image-coming-soon.png'
+    }
   })
 }
 
