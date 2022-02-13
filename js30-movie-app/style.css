@@ -111,6 +111,21 @@ body {
 }
 
 /*footer*/
-.footer {
-
+.footer-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background: var(--first-background-color);
+    padding: 10px 20px;
+}
+.footer__data {
+    font-family: var(--movie-rating-font);
+    font-weight: bold;
+}
+.rss-logo {
+    width: 100px;
+}
+.git-logo {
+    width: 70px;
 }
