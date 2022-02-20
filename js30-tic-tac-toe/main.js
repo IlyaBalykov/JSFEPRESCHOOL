@@ -1,5 +1,11 @@
 const area = document.getElementById('area')
-let isWinner= ''
+const modalContainer = document.getElementById('modal-container')
+const modalOverlay= document.getElementById('overlay')
+const modalBtnClose= document.querySelector('.modal__btn-close')
+
+const modalContent = document.getElementById('modal__content')
+
+let isWinner = ''
 let move = 0;
 
 area.addEventListener('click', event => {
@@ -9,6 +15,7 @@ area.addEventListener('click', event => {
     check()
   }
 })
+modalBtnClose.addEventListener('click', closeModal)
 
 function check() {
   const areaBoxes = document.getElementsByClassName("area__box")
@@ -31,11 +38,17 @@ function check() {
     } else if (
       areaBoxes[arr[index][0]].innerHTML === 'O' && areaBoxes[arr[index][1]].innerHTML === 'O' && areaBoxes[arr[index][2]].innerHTML === 'O'
     ) {
-      isWinner= 'нолики'
+      isWinner = 'нолики'
       showWinner(isWinner)
     }
   })
 }
-function showWinner (winner) {
-  console.log(winner)
+
+function showWinner(winner) {
+  modalContent.innerHTML = `Выиграли ${isWinner}!`
+  modalContainer.style.display = 'block'
+}
+function closeModal () {
+  modalContainer.style.display = 'none'
+  location.reload()
 }
