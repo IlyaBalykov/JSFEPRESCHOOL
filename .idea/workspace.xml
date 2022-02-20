@@ -5,11 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8e5e9217-19f9-486e-aec3-0edf5715a161" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/js30-tic-tac-toe/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/js30-tic-tac-toe/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js30-tic-tac-toe/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/js30-tic-tac-toe/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/js30-tic-tac-toe/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/js30-tic-tac-toe/style.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,7 +63,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="vcs.Git" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
@@ -149,7 +148,9 @@
       <workItem from="1644605404676" duration="7977000" />
       <workItem from="1644844215176" duration="4862000" />
       <workItem from="1645342664543" duration="78000" />
-      <workItem from="1645342767168" duration="1407000" />
+      <workItem from="1645342767168" duration="5090000" />
+      <workItem from="1645360441609" duration="88000" />
+      <workItem from="1645360907028" duration="4154000" />
     </task>
     <servers />
   </component>
