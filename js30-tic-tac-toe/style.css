@@ -1,22 +1,39 @@
 :root {
     --first-background-color: #3E5F8A;
-    --second-background-color: #003153;
-    --movie-title-font: 'Rubik', sans-serif;
-    --movie-rating-font: 'Open Sans', sans-serif;
+    --font: 'Open Sans', sans-serif;
 }
 
 * {
     box-sizing: border-box;
 }
+
 body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    padding: 0;
+    margin: 0;
+    min-height: 100vh;
 }
+
 .container {
     max-width: 1440px;
     margin: 0 auto;
 }
+
+.main-title {
+    margin-bottom: 40px;
+    font-family: var(--font);
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    min-height: 100%;
+}
+
 .area-container {
     display: flex;
     justify-content: center;
@@ -24,6 +41,7 @@ body {
     width: 100%;
     height: 100%;
 }
+
 #area {
     width: 300px;
     height: 300px;
@@ -31,6 +49,7 @@ body {
     display: flex;
     flex-wrap: wrap;
 }
+
 .area__box {
     display: flex;
     justify-content: center;
@@ -50,6 +69,7 @@ body {
     top: 0;
     left: 0;
 }
+
 #overlay {
     width: 100%;
     height: 100%;
@@ -57,29 +77,44 @@ body {
     left: 0;
     background-color: rgba(0, 0, 0, .5);
 }
+
 #modal-window {
-    width: 150px;
-    border: 1px solid black;
-    background-color: white;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     display: flex;
     flex-flow: column;
     justify-content: space-between;
     align-items: center;
     position: absolute;
+    width: 300px;
+    border: 1px solid black;
+    background-color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
 }
+
+#modal__content {
+    margin-bottom: 10px;
+    font-family: var(--font);
+}
+
 #modal__btn-close {
     width: 50px;
     height: 20px;
     text-align: center;
+    font-family: var(--font);
     cursor: pointer;
 }
+
 .modal__records {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.records__title {
+    font-size: 14px;
+    font-family: var(--font);
 }
 
 /*footer*/
@@ -88,16 +123,20 @@ body {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background: black;
+    background: var(--first-background-color);
     padding: 10px 20px;
 }
-.footer__data {;
+
+.footer__data {
+    font-family: var(--font);
     font-weight: bold;
     color: white;
 }
+
 .rss-logo {
     width: 100px;
 }
+
 .git-logo {
     width: 70px;
 }

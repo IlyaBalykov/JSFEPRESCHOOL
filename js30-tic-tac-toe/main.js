@@ -3,7 +3,8 @@ const modalContainer = document.getElementById('modal-container')
 const modalOverlay = document.getElementById('overlay')
 const modalBtnClose = document.querySelector('.modal__btn-close')
 const modalRecords = document.querySelector('.modal__records')
-let arr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+let isWinnersArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+let isStepsArr = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 const modalContent = document.getElementById('modal__content')
 
 let isWinner = '';
@@ -13,9 +14,13 @@ let isOSteps = 0;
 window.onload = function () {
   console.log(localStorage.result)
   if(localStorage.length > 0) {
-    arr = localStorage.result.split(',')
+    isStepsArr= localStorage.result.split(',')
+    isWinnersArr= localStorage.winner.split(',')
+  } else {
+    localStorage.setItem('result', isStepsArr)
+    localStorage.setItem('winner', isWinnersArr)
   }
-  console.log('теперь' + arr)
+  console.log('теперь' + isStepsArr)
 }
 
 
@@ -68,8 +73,8 @@ function check() {
 function showWinner(winner, steps) {
   modalContent.innerHTML = `Выиграли ${winner} за ${steps} хода!`
   modalContainer.style.display = 'block'
-  setLocalStorage(steps)
-  showResults(steps)
+  setLocalStorage(steps, winner)
+  showResults()
 }
 
 function closeModal() {
@@ -77,19 +82,23 @@ function closeModal() {
   location.reload()
 }
 
-function setLocalStorage(steps) {
-  arr.pop()
-  arr.unshift(steps)
-  localStorage.setItem('result', arr)
+function setLocalStorage(steps, winner) {
+  isStepsArr.pop()
+  isStepsArr.unshift(steps)
+  localStorage.setItem('result', isStepsArr)
+  isWinnersArr.pop()
+  isWinnersArr.unshift(winner)
+  localStorage.setItem('winner', isWinnersArr)
 }
 
-function showResults(steps) {
-
-  arr.forEach((element, index) => {
-    let result = document.createElement('span')
-    result.className = 'result'
-    console.log(element)
-    result.innerHTML = `${element}`
-    modalRecords.appendChild(result)
+function showResults() {
+  isStepsArr.forEach((element, index) => {
+    if (element > 0) {
+      let result = document.createElement('span')
+      result.className = 'result'
+      console.log(element)
+      result.innerHTML = `Выиграли ${isWinnersArr[index]} за ${element} хода`
+      modalRecords.appendChild(result)
+    }
   })
 }
