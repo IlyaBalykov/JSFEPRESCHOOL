@@ -1,3 +1,4 @@
+js30-tic-tac-toe
 # Logs
 logs
 *.log
@@ -102,3 +103,8 @@ dist
 
 # TernJS port file
 .tern-port
+
+# WebStorm files
+
+.idea/
+gh-pages
