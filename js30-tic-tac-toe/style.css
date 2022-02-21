@@ -1,5 +1,8 @@
-:root{
-
+:root {
+    --first-background-color: #3E5F8A;
+    --second-background-color: #003153;
+    --movie-title-font: 'Rubik', sans-serif;
+    --movie-rating-font: 'Open Sans', sans-serif;
 }
 
 * {
