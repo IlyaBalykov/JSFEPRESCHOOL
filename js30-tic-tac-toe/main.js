@@ -25,6 +25,7 @@ window.onload = function () {
 
 
 area.addEventListener('click', event => {
+  playClick()
   if (!event.target.innerHTML) {
     if (event.target.className === 'area__box') {
       if (move % 2 === 0) {
@@ -101,4 +102,11 @@ function showResults() {
       modalRecords.appendChild(result)
     }
   })
+}
+
+function playClick(){
+  let audio = document.createElement('audio');
+  audio.setAttribute("autoplay","true");
+  audio.innerHTML = "<source src=\"assets/click.mp3\" type=\"audio/mpeg\">";
+  document.body.appendChild(audio);
 }
